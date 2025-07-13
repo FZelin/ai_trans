@@ -37,3 +37,9 @@ conda env list
 ```bash
 conda activate lf
 ```
+
+- 如出现conda init提示，需要输入conda init 并且更新bashrc
+```bash
+conda init
+source ~/.bashrc
+``` 
