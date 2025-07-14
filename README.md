@@ -43,3 +43,52 @@ conda activate lf
 conda init
 source ~/.bashrc
 ``` 
+
+- 在虚拟环境中安装 LLaMA Factory 相关依赖(注：得进入LLaMA Factory文件夹下安装)
+```bash
+pip install -e ".[torch,metrics]"
+```
+如报错 bash: pip: command not found ，先执行 conda install pip 即可
+
+- 检验是否安装成功
+```bash
+llamafactory-cli version
+```
+- 检查llamafactory-cli安装位置
+```bash
+which llamafactory-cli
+```
+- 启动 LLama-Factory 的可视化微调界面 （由 Gradio 驱动）
+```bash
+llamafactory-cli webui
+```
+
+- 创建文件夹统一存放所有模型
+```bash
+mkdir hugging-face
+```
+- 修改 HuggingFace 的镜像源 
+```bash
+export HF_ENDPOINT=https://hf-mirror.com
+```
+- 修改模型下载的默认位置(这里是一autodl位置为示例)
+```bash
+export HF_HOME=/root/autodl-tmp/hugging-face
+```
+ 注意：这种配置方式只在当前 shell 会话中有效，如果你希望这个环境变量在每次启动终端时都生效，可以将其添加到你的用户配置文件中（修改 `~/.bashrc` 或 `~/.zshrc`）
+
+
+- 检查环境变量是否生效
+```bash
+echo $HF_ENDPOINT
+echo $HF_HOME
+```
+
+- 安装 HuggingFace 官方下载工具
+```text
+pip install -U huggingface_hub
+```
+- 执行下载命令
+```bash
+huggingface-cli download --resume-download Qwen/QwQ-32B
+```
