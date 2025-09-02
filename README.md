@@ -92,3 +92,52 @@ pip install -U huggingface_hub
 ```bash
 huggingface-cli download --resume-download Qwen/QwQ-32B
 ```
+
+
+--------------------
+
+unsloth 安装
+
+创建conda 虚拟环境 
+```bash
+conda create --name unsloth python=3.11
+conda init
+source ~/.bashrc
+conda activate unsloth
+```
+
+安装jupyter和jupyter Kernel
+```bash
+conda install jupyterlab
+conda install ipykernel
+python -m ipykernel install --user --name unsloth --display-name "Python unsloth"
+```
+
+安装Unsloth
+```bash
+pip install --upgrade --force-reinstall --no-cache-dir unsloth unsloth_zoo
+```
+
+
+
+
+---------------------
+vllm 安装
+
+
+创建vllm 虚拟环境
+```bash
+conda create --name vllm python=3.11
+conda init
+source ~/.bashrc
+conda activate vllm
+```
+
+安装vllm
+```bash
+pip install bitsandbytes>=0.45.3
+pip install --upgrade vllm
+```
+-注：bitsandbytes是为了适配4bit动态量化模型调用，必须引用的库
+
+
